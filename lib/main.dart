@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'api_service.dart';
+import 'registro_screen.dart';
+
 
 void main() {
   runApp(const AmbuFlashApp());
@@ -181,7 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1)),
               const SizedBox(height: 8),
-              _textField(emailController, 'ana.garcia@email.com', false),
+              _textField(emailController, 'dana.hernandez@gmail.com', false),
 
               const SizedBox(height: 16),
 
@@ -237,19 +239,27 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 24),
 
               Center(
-                child: RichText(
-                  text: const TextSpan(
-                    style: TextStyle(color: ambuTextGray, fontSize: 13),
-                    children: [
-                      TextSpan(text: '¿No tienes cuenta? '),
-                      TextSpan(
-                          text: 'Registrate',
-                          style: TextStyle(
-                              color: ambuRed, fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ),
-              ),
+  child: GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const RegistroScreen()),
+      );
+    },
+    child: RichText(
+      text: const TextSpan(
+        style: TextStyle(color: ambuTextGray, fontSize: 13),
+        children: [
+          TextSpan(text: '¿No tienes cuenta? '),
+          TextSpan(
+              text: 'Registrate',
+              style: TextStyle(
+                  color: ambuRed, fontWeight: FontWeight.bold)),
+        ],
+      ),
+    ),
+  ),
+),
             ],
           ),
         ),
